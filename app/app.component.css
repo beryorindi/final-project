@@ -5,7 +5,6 @@
 }
 nav {
   display: flex;
-  flex-direction: column;
   width: 68px;
   background-color: #53ace4;
 }
@@ -16,7 +15,7 @@ nav .icon {
 }
 section {
   width: 100%;
-  background-color: #32435b;
+  /*background-color: #32435b;*/
 }
 section > header {
   color: #ffffff;
