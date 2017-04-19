@@ -6,6 +6,7 @@ import { HttpModule, XHRBackend } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './search-bar/search.component';
 import { NavigationBarComponent } from './navigation-bar/navigation.component';
+import { EmployeeComponent } from './employee-list/employee.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 /*import { MediaItemComponent } from './media-item.component';
@@ -29,6 +30,7 @@ import { routing } from './app.routing';*/
     AppComponent,
     SearchBarComponent,
     NavigationBarComponent,
+    EmployeeComponent,
     EmployeeListComponent,
     EmployeeDetailComponent
     /*MediaItemComponent,
