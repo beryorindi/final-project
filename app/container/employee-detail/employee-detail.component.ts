@@ -3,8 +3,8 @@ import { Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'employee-detail',
-  templateUrl: 'app/employee-detail/employee-detail.component.html',
-  styleUrls: ['app/employee-detail/employee-detail.component.css']
+  templateUrl: 'app/container/employee-detail/employee-detail.component.html',
+  styleUrls: ['app/container/employee-detail/employee-detail.component.css']
 })
 export class EmployeeDetailComponent { 
     form;

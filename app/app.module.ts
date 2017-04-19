@@ -4,11 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, XHRBackend } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { SearchBarComponent } from './search-bar/search.component';
-import { NavigationBarComponent } from './navigation-bar/navigation.component';
-import { EmployeeComponent } from './employee-list/employee.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { LoginBarComponent } from './header/login-bar/login-bar.component';
+import { SearchBarComponent } from './header/search-bar/search.component';
+import { NavigationBarComponent } from './header/navigation-bar/navigation.component';
+import { EmployeeComponent } from './container/employee-list/employee.component';
+import { EmployeeListComponent } from './container/employee-list/employee-list.component';
+import { EmployeeDetailComponent } from './container/employee-detail/employee-detail.component';
 /*import { MediaItemComponent } from './media-item.component';
 import { MediaItemListComponent } from './media-item-list.component';
 import { FavoriteDirective } from './favorite.directive';
@@ -28,6 +29,7 @@ import { routing } from './app.routing';*/
   ],
   declarations: [
     AppComponent,
+    LoginBarComponent,
     SearchBarComponent,
     NavigationBarComponent,
     EmployeeComponent,

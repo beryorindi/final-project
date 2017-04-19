@@ -3,8 +3,8 @@ import { Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'search-bar',
-  templateUrl: 'app/search-bar/search.component.html',
-  styleUrls: ['app/search-bar/search.component.css']
+  templateUrl: 'app/header/search-bar/search.component.html',
+  styleUrls: ['app/header/search-bar/search.component.css']
 })
 export class SearchBarComponent { 
   form;

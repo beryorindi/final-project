@@ -1,9 +1,11 @@
 :host {
-  float:left;
-  width: 65%;
   display: flex;
-  border: 2px solid;
   background-color: #29394b;
-  padding: 10px;
+  padding: 20px;
   color: #bdc2c5;
+  margin: 0;
+}
+
+#formcoloumn{
+  padding : 20px;
 }
