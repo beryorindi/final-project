@@ -1,5 +1,4 @@
 <section>
-    <employee></employee>
-    <employee></employee>
-    <employee></employee>
+    <employee *ngFor="let mediaItem of mediaItems"
+    [mediaItem]="mediaItem"></employee>
 </section>

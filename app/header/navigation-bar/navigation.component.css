@@ -1,5 +1,16 @@
 :host {
-  background-color: green;
+  background-color: #ffb52d;
   color: #bdc2c5;
   width: 100%;
+}
+
+.btn-circle.btn-lg {
+  float: left;
+  background-color: transparent;
+  width: 16%;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
 }
