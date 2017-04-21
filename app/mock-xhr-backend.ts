@@ -18,7 +18,7 @@ export class MockXHRBackend {
               body: { mediaItems: JSON.parse(JSON.stringify(mediaItems)) },
               status: 200
             });
-          break;
+          break;          
         case RequestMethod.Post:
           var mediaItem = JSON.parse(request.text().toString());
           mediaItem.id = this._getNewId();
@@ -69,7 +69,9 @@ export class MockXHRBackend {
       hireddate : "13/06/2016",
       grade : "SE - AP",
       division : "CDC Asterx",
-      email : "john.cena@gmail.com"
+      email : "john.cena@gmail.com",
+      office : "Bali",
+      image : "../media/employee.jpg"
     },
     {
       id: 2,
@@ -86,7 +88,104 @@ export class MockXHRBackend {
       hireddate : "10/07/2015",
       grade : "SE - PG",
       division : "SWD Techone",
-      email : "johny.depay@mail.com"
+      email : "johny.depay@mail.com",
+      office : "Jakarta",
+      image : "../media/employee.jpg"
+    },
+    {
+      id: 3,
+      firstname: "Johnny",
+      lastname: "Depay",
+      gender: "male",
+      dob: "30/05/1980",
+      nationality : "england",
+      marital : "married",
+      phone : "62821290908",
+      subdiv : "PhP Bootcamp",
+      status : "Permanent",
+      suspend : "-",
+      hireddate : "10/07/2015",
+      grade : "SE - PG",
+      division : "SWD Techone",
+      email : "johny.depay@mail.com",
+      office : "Jakarta",
+      image : "../media/employee.jpg"
+    },
+    {
+      id: 4,
+      firstname: "Johnny",
+      lastname: "Depay",
+      gender: "male",
+      dob: "30/05/1980",
+      nationality : "england",
+      marital : "married",
+      phone : "62821290908",
+      subdiv : "PhP Bootcamp",
+      status : "Permanent",
+      suspend : "-",
+      hireddate : "10/07/2015",
+      grade : "SE - PG",
+      division : "SWD Techone",
+      email : "johny.depay@mail.com",
+      office : "Jakarta",
+      image : "../media/employee.jpg"
+    },
+    {
+      id: 5,
+      firstname: "Johnny",
+      lastname: "Depay",
+      gender: "male",
+      dob: "30/05/1980",
+      nationality : "england",
+      marital : "married",
+      phone : "62821290908",
+      subdiv : "PhP Bootcamp",
+      status : "Permanent",
+      suspend : "-",
+      hireddate : "10/07/2015",
+      grade : "SE - PG",
+      division : "SWD Techone",
+      email : "johny.depay@mail.com",
+      office : "Jakarta",
+      image : "../media/employee.jpg"
+    },
+    {
+      id: 6,
+      firstname: "Johnny",
+      lastname: "Depay",
+      gender: "male",
+      dob: "30/05/1980",
+      nationality : "england",
+      marital : "married",
+      phone : "62821290908",
+      subdiv : "PhP Bootcamp",
+      status : "Permanent",
+      suspend : "-",
+      hireddate : "10/07/2015",
+      grade : "SE - PG",
+      division : "SWD Techone",
+      email : "johny.depay@mail.com",
+      office : "Jakarta",
+      image : "../media/employee.jpg"
+    },
+    {
+      id: 7,
+      firstname: "Johnny",
+      lastname: "Depay",
+      gender: "male",
+      dob: "30/05/1980",
+      nationality : "england",
+      marital : "married",
+      phone : "62821290908",
+      subdiv : "PhP Bootcamp",
+      status : "Permanent",
+      suspend : "-",
+      hireddate : "10/07/2015",
+      grade : "SE - PG",
+      division : "SWD Techone",
+      email : "johny.depay@mail.com",
+      office : "Jakarta",
+      image : "../media/employee.jpg"
     },
   ];
 }

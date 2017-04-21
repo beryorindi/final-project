@@ -31,7 +31,8 @@ export class EmployeeDetailComponent {
       suspenddate: this.formBuilder.control(''),
       hireddate: this.formBuilder.control(''),
       grade: this.formBuilder.control(''),
-      email: this.formBuilder.control('')
+      email: this.formBuilder.control(''),
+      office: this.formBuilder.control('')
       
     });
   }

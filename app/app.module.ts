@@ -11,6 +11,7 @@ import { EmployeeComponent } from './container/employee-list/employee.component'
 import { EmployeeListComponent } from './container/employee-list/employee-list.component';
 import { EmployeeDetailComponent } from './container/employee-detail/employee-detail.component';
 import { EmployeeService } from './employee.service';
+import { MockXHRBackend } from './mock-xhr-backend';
 /*import { MediaItemComponent } from './media-item.component';
 import { MediaItemListComponent } from './media-item-list.component';
 import { FavoriteDirective } from './favorite.directive';
@@ -43,9 +44,9 @@ import { routing } from './app.routing';*/
     MediaItemFormComponent*/
   ],
   providers: [
-    EmployeeService
-    /*{ provide: lookupListToken, useValue: lookupLists },
-    { provide: XHRBackend, useClass: MockXHRBackend }*/
+    EmployeeService,
+    /*{ provide: lookupListToken, useValue: lookupLists }*/
+    { provide: XHRBackend, useClass: MockXHRBackend }
   ],
   bootstrap: [
     AppComponent

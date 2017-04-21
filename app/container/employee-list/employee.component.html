@@ -1,7 +1,20 @@
-<div>{{ mediaItem.name }}</div>
-<div>{{ mediaItem.grade }}</div>
-<div>{{ mediaItem.division }}</div>
-<div>{{ mediaItem.division }}</div>
-<div>{{ mediaItem.phone }}</div>
-<div>{{ mediaItem.hireddate }}</div>
-
+<div class="card-block">
+    <table>
+        <tr>
+            <td rowspan="3" valign="center">
+                <img class="img-circle" src="{{ mediaItem.image }}" alt="image">
+            </td>
+            <td class="left"><b>{{ mediaItem.firstname }} {{ mediaItem.lastname }}</b></td>
+            <td class="right"><b>{{ mediaItem.hireddate }}</b></td>
+        </tr>
+        <tr>
+            <td class="left">{{ mediaItem.grade }}, {{ mediaItem.division }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="left">{{ mediaItem.office }}, {{ mediaItem.phone }}</td>
+            <td rowspan="2" class="right" valign="center"><i class="glyphicon glyphicon-record">></i></td>
+        </tr>
+    </table>
+    
+</div>

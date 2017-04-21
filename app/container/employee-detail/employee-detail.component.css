@@ -1,11 +1,17 @@
 :host {
   display: flex;
-  background-color: #29394b;
   padding: 20px;
-  color: #bdc2c5;
   margin: 0;
+  height: 100%;
+  max-height: 700px;
 }
 
 #formcoloumn{
   padding : 20px;
+}
+
+img{
+  border-radius: 50%;
+    width : 100px;
+    height: 100px;
 }

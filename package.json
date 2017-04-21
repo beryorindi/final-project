@@ -1,11 +1,11 @@
 {
-  "name": "angular2-essential-training",
+  "name": "btpn-mitrais-training-final-project",
   "version": "1.0.0",
-  "author": "Justin Schwartzenberger",
-  "description": "This project is the repository for my Angular 2 Essential Training course on Lynda.com.",
+  "author": "Bery Orindi",
+  "description": "This project is the repository for my final project of BTPN Mitrais Training",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LyndaExerciseFiles/angular2-essential-training.git"
+    "url": "https://github.com/beryorindi/final-project"
   },
   "scripts": {
     "clean": "rimraf app/**/*.js app/**/*.js.map",
