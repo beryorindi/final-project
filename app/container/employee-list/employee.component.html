@@ -1,20 +1,22 @@
 <div class="card-block">
-    <table>
-        <tr>
-            <td rowspan="3" valign="center">
-                <img class="img-circle" src="{{ mediaItem.image }}" alt="image">
-            </td>
-            <td class="left"><b>{{ mediaItem.firstname }} {{ mediaItem.lastname }}</b></td>
-            <td class="right"><b>{{ mediaItem.hireddate }}</b></td>
-        </tr>
-        <tr>
-            <td class="left">{{ mediaItem.grade }}, {{ mediaItem.division }}</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td class="left">{{ mediaItem.office }}, {{ mediaItem.phone }}</td>
-            <td rowspan="2" class="right" valign="center"><i class="glyphicon glyphicon-record">></i></td>
-        </tr>
-    </table>
-    
+    <div class="row">
+        <div class="col-sm-3">
+            <img class="img-circle" src="{{ mediaItem.image }}" alt="image">
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <span class="left"><b>{{ mediaItem.firstname }} {{ mediaItem.lastname }}</b></span>
+            </div>
+            <div class="row">
+                <span class="left">{{ mediaItem.grade }}, {{ mediaItem.division }}</span>    
+            </div>
+            <div class="row">
+                <span class="left">{{ mediaItem.office }}, {{ mediaItem.phone }}</span>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <span class="right"><b>{{ mediaItem.hireddate }}</b></span>
+            <span class="right" ><i class="glyphicon glyphicon-record">></i></span>
+        </div>
+    </div>
 </div>
