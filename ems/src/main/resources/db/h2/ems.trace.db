@@ -1,0 +1,381 @@
+2017-04-24 11:56:43 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLException: Table "EMPLOYEELOCATION" not found; SQL statement:
+SELECT * FROM EMPLOYEELOCATION [42102-193]
+2017-04-24 16:44:54 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Table "EMPLOYEE" already exists; SQL statement:
+create table employee (
+    id varchar(255) not null,
+    first_name varchar(50) not null,
+    last_name varchar(50) not null,
+    gender varchar(6) not null,
+    dob date not null,
+    nationality varchar(45) not null,
+    marital_status varchar(7) not null,
+    phone varchar(15) not null unique,
+    email varchar(50) not null unique,
+    hired_date date not null,
+    suspend_date date,
+    division varchar(45) not null,
+    grade varchar(45) not null,
+    sub_division varchar(45) not null,
+    status varchar(20) not null,
+    image_url varchar(255),
+    location_id varchar(255) not null,
+    primary key (id),
+    foreign key (location_id) references location(id)
+) [42101-194]
+2017-04-24 16:45:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "2-12-1985"; SQL statement:
+insert into employee (id, first_name, last_name, gender, dob, nationality, marital_status, phone, email, hired_date, suspend_date, division, grade, sub_division, status, image_url, location_id)
+ values (
+    '1',
+    'John',
+    'Cena',
+    'male',
+    '2-12-1985',
+    'American',
+    'Single',
+    '628723628390',
+    'john.cena@gmail.com',
+    '6-13-2016',
+    null,
+    'CDC Asterx',
+    'SE - AP',
+    'Java Bootcamp',
+    'Permanent',
+    '1.jpg',
+    '1'
+) -- ('1', 'John', 'Cena', 'male', '2-12-1985', 'American', 'Single', '628723628390', 'john.cena@gmail.com', '6-13-2016', NULL, 'CDC Asterx', 'SE - AP', 'Java Bootcamp', 'Permanent', '1.jpg', '1') [22007-194]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:929)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:101)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp.query(WebApp.java:1029)
+	at org.h2.server.web.WebApp.process(WebApp.java:222)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:169)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:125)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:162)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 2-12-1985
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:319)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 54 more
+2017-04-24 16:45:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "5-30-1980"; SQL statement:
+insert into employee (id, first_name, last_name, gender, dob, nationality, marital_status, phone, email, hired_date, suspend_date, division, grade, sub_division, status, image_url, location_id)
+ values (
+    '2',
+    'Johnny',
+    'Depay',
+    'male',
+    '5-30-1980',
+    'Australia',
+    'Maried',
+    '68129031389',
+    'john.cena@gmail.com',
+    '7-10-2015',
+    null,
+    'SWD Techone',
+    'SE - AP',
+    'Php Bootcamp',
+    'Contract',
+    '1.jpg',
+    '2'
+) -- ('2', 'Johnny', 'Depay', 'male', '5-30-1980', 'Australia', 'Maried', '68129031389', 'john.cena@gmail.com', '7-10-2015', NULL, 'SWD Techone', 'SE - AP', 'Php Bootcamp', 'Contract', '1.jpg', '2') [22007-194]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:929)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:101)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp.query(WebApp.java:1029)
+	at org.h2.server.web.WebApp.process(WebApp.java:222)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:169)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:125)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:162)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 5-30-1980
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:319)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 54 more
+2017-04-24 16:46:26 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "2016-13-6"; SQL statement:
+insert into employee (id, first_name, last_name, gender, dob, nationality, marital_status, phone, email, hired_date, suspend_date, division, grade, sub_division, status, image_url, location_id)
+ values (
+    '1',
+    'John',
+    'Cena',
+    'male',
+    '1985-12-2',
+    'American',
+    'Single',
+    '628723628390',
+    'john.cena@gmail.com',
+    '2016-13-6',
+    null,
+    'CDC Asterx',
+    'SE - AP',
+    'Java Bootcamp',
+    'Permanent',
+    '1.jpg',
+    '1'
+) -- ('1', 'John', 'Cena', 'male', '1985-12-2', 'American', 'Single', '628723628390', 'john.cena@gmail.com', '2016-13-6', NULL, 'CDC Asterx', 'SE - AP', 'Java Bootcamp', 'Permanent', '1.jpg', '1') [22007-194]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:929)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:101)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp.query(WebApp.java:1029)
+	at org.h2.server.web.WebApp.process(WebApp.java:222)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:169)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:125)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:162)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 2016-13-6
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:319)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 54 more
+2017-04-24 16:47:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Cannot parse "DATE" constant "2016-13-6"; SQL statement:
+insert into employee (id, first_name, last_name, gender, dob, nationality, marital_status, phone, email, hired_date, suspend_date, division, grade, sub_division, status, image_url, location_id)
+ values (
+    '1',
+    'John',
+    'Cena',
+    'male',
+    '1985-12-2',
+    'American',
+    'Single',
+    '628723628390',
+    'john.cena@gmail.com',
+    '2016-13-6',
+    null,
+    'CDC Asterx',
+    'SE - AP',
+    'Java Bootcamp',
+    'Permanent',
+    '1.jpg',
+    '1'
+) -- ('1', 'John', 'Cena', 'male', '1985-12-2', 'American', 'Single', '628723628390', 'john.cena@gmail.com', '2016-13-6', NULL, 'CDC Asterx', 'SE - AP', 'Java Bootcamp', 'Permanent', '1.jpg', '1') [22007-194]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueDate.parse(ValueDate.java:81)
+	at org.h2.value.Value.convertTo(Value.java:929)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:101)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp.query(WebApp.java:1029)
+	at org.h2.server.web.WebApp.process(WebApp.java:222)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:169)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:125)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:162)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 2016-13-6
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:319)
+	at org.h2.value.ValueDate.parse(ValueDate.java:79)
+	... 54 more
+2017-04-24 16:48:16 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Table "EMPLOYEE" already exists; SQL statement:
+create table employee (
+    id varchar(255) not null,
+    first_name varchar(50) not null,
+    last_name varchar(50) not null,
+    gender varchar(6) not null,
+    dob date not null,
+    nationality varchar(45) not null,
+    marital_status varchar(7) not null,
+    phone varchar(15) not null unique,
+    email varchar(50) not null unique,
+    hired_date date not null,
+    suspend_date date,
+    division varchar(45) not null,
+    grade varchar(45) not null,
+    sub_division varchar(45) not null,
+    status varchar(20) not null,
+    image_url varchar(255),
+    location_id varchar(255) not null,
+    primary key (id),
+    foreign key (location_id) references location(id)
+) [42101-194]

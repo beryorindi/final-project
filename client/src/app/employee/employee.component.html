@@ -1,0 +1,23 @@
+<div class="card-block">
+    <div class="row">
+        <div class="col-sm-3">
+            <img class="img-circle" src="{{ employee.imageUrl }}" alt="image">
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <span class="left"><b>{{ employee.firstName }} {{ employee.lastName }}</b></span>
+            </div>
+            <div class="row">
+                <span class="left">{{ employee.grade }}, {{ employee.division }}</span>    
+            </div>
+            <div class="row">
+                <span class="left">{{ employee.locationId }}, {{ employee.phone }}</span>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <span class="right"><b>{{ employee.hiredDate }}</b></span>
+            <span class="right" ><i class="glyphicon glyphicon-record">></i></span>
+        </div>
+    </div>
+</div>
+
