@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { Validators, FormBuilder } from '@angular/forms';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-
+  @Input() media;
   form;
     onSubmit(mediaItem) {
     //this.mediaItemService.add(mediaItem)

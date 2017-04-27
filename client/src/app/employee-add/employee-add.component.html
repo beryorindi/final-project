@@ -1,0 +1,82 @@
+<section>
+    <div class="popup">
+      <div class = "popup-content">
+      <form class="form-horizontal"
+        [formGroup]="formadd"
+        >
+        <div class="row">
+          <div class="col-md-5" id="formcolumn">
+              <div class="form-group">
+                <label class="control-label" for="firstname">First Name</label>
+                <input class="form-control" type="text" name="firstname" id="firstname" formControlName="firstname">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="lastname">Last Name</label>
+                <input class="form-control" type="text" name="lastname" id="lastname" formControlName="lastname" >
+              </div>
+              <div class="form-group">
+                  <label class="control-label" for="gender">Gender</label>
+                  <select class="form-control" name="gender" id="gender" formControlName="gender">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="dob">Date of Birth</label>
+                <input class="form-control" type="text" name="dob" id="dob" formControlName="dob">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="nationality">Nationality</label>
+                <input class="form-control" type="text" name="nationality" id="nationality" formControlName="nationality">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="marital">Marital Status</label>
+                <input class="form-control" type="text" name="marital" id="marital" formControlName="marital">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="phone">Phone</label>
+                <input class="form-control" type="text" name="phone" id="phone" formControlName="phone">
+              </div>
+          </div>
+          <div class="col-md-5" id="formcolumn">
+              <div class="form-group">
+                <label class="control-label" for="subdiv">Sub Division</label>
+                <input class="form-control" type="text" name="subdiv" id="subdiv" formControlName="subdiv">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="status">Status</label>
+                <input class="form-control" type="text" name="status" id="status" formControlName="status">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="suspenddate">Suspend Date</label>
+                <input class="form-control" type="text" name="suspenddate" id="suspenddate" formControlName="suspenddate">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="hireddate">Hired Date</label>
+                <input class="form-control" type="text" name="hireddate" id="hireddate" formControlName="hireddate">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="grade">Grade</label>
+                <input class="form-control" type="text" name="grade" id="grade" formControlName="grade">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="email">Email</label>
+                <input class="form-control" type="text" name="email" id="email" formControlName="email">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="office">Office Location</label>
+                <input class="form-control" type="text" name="office" id="office" formControlName="office">
+              </div>
+          </div>
+          <div class="col-sm-2" id="formcolomn">
+            <img src="">
+          </div>
+        </div>
+        <div class="row">
+          <button (click)="closePopup()">Cancel</button>
+          <button type="submit" [disabled]="!formadd.valid">Save</button>
+        </div>
+      </form>
+      </div>
+    </div>
+</section>

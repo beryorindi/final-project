@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-employee',
@@ -6,12 +6,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-
+  
   @Input() employee;
+  @Output() loaddetail = new EventEmitter();
   
   constructor() { }
 
   ngOnInit() {
   }
 
+  loadEmlpoyeeDetail(){
+    this.loaddetail.emit(this.employee);
+    //console.log(this.employee);
+  }
 }

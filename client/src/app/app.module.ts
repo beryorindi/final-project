@@ -12,6 +12,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 
 import { EmployeeService } from './employee.service';
+import { EmployeeAddComponent } from './employee-add/employee-add.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EmployeeService } from './employee.service';
     LoginBarComponent,
     SearchBarComponent,
     NavigationBarComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    EmployeeAddComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -8,12 +8,27 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
+  @Output() selectedEmployee = new EventEmitter();
+  @Output() add = new EventEmitter();
+
+  media = null;
+  loadEmployeeDetail(employee){
+    this.media = employee;
+    this.selectedEmployee.emit(employee);
+    //console.log(this.media);
+  }
+
+  clearForm(){
+    this.add.emit();
+  }
+  
   employees = [];
 
   constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() {
     this.getEmployees();
+
   }
 
   /*onMediaItemDelete(mediaItem) {

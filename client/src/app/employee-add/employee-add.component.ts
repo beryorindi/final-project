@@ -1,18 +1,18 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-employee-detail',
-  templateUrl: './employee-detail.component.html',
-  styleUrls: ['./employee-detail.component.css']
+  selector: 'app-employee-add',
+  templateUrl: './employee-add.component.html',
+  styleUrls: ['./employee-add.component.css']
 })
-export class EmployeeDetailComponent implements OnInit {
-  form;
-  @Input() employee;
-  constructor( private formBuilder: FormBuilder){}
+export class EmployeeAddComponent implements OnInit {
+  formadd;
+  @Output() close = new EventEmitter();
+  constructor( private formBuilder: FormBuilder ) {  }
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
+    this.formadd = this.formBuilder.group({
       firstname: this.formBuilder.control('', Validators.compose([
         Validators.required,
         Validators.pattern('[\\w\\-\\s\\/]+')
@@ -35,6 +35,10 @@ export class EmployeeDetailComponent implements OnInit {
       office: this.formBuilder.control('')
       
     });
+  }
+
+  closePopup(){
+    this.close.emit();
   }
 
 }

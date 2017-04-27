@@ -1,7 +1,9 @@
 <section>
     <app-employee *ngFor="let employee of employees"
-    [employee]="employee"></app-employee>
-    <button type="button" class="btn btn-circle btn-lg" id="right">
+    [employee]="employee"
+    (loaddetail)="loadEmployeeDetail($event)" 
+    ></app-employee>
+    <button type="button" class="btn btn-circle btn-lg" id="right" (click)="clearForm()">
         <span class="glyphicon glyphicon-plus"></span>
     </button>
     
