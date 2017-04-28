@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -10,9 +11,14 @@ export class EmployeeComponent implements OnInit {
   @Input() employee;
   @Output() loaddetail = new EventEmitter();
   
-  constructor() { }
+ 
+
+  constructor(
+    
+  ) { }
 
   ngOnInit() {
+    
   }
 
   loadEmlpoyeeDetail(){

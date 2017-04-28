@@ -1,79 +1,85 @@
 <section>
-
     <form class="form-horizontal"
       [formGroup]="form"
+      (ngSubmit)="update(form.value)"
       >
       <div class="row">
         <div class="col-md-5" id="formcolumn">
+            <input type="hidden" name="id" id="id" formControlName="id" [ngModel]="employee?.id">
             <div class="form-group">
-              <label class="control-label" for="firstname">First Name</label>
-              <input class="form-control" type="text" name="firstname" id="firstname" formControlName="firstname" value= "{{ employee.firstName }}">
+              <label class="control-label" for="firstName">First Name</label>
+              <input class="form-control" type="text" name="firstName" id="firstName" formControlName="firstName" [ngModel]="employee?.firstName">
             </div>
             <div class="form-group">
-              <label class="control-label" for="lastname">Last Name</label>
-              <input class="form-control" type="text" name="lastname" id="lastname" formControlName="lastname" value= "{{ employee.lastName }}">
+              <label class="control-label" for="lastName">Last Name</label>
+              <input class="form-control" type="text" name="lastname" id="lastName" formControlName="lastName" [ngModel]="employee?.lastName">
             </div>
             <div class="form-group">
                 <label class="control-label" for="gender">Gender</label>
-                <select class="form-control" name="gender" id="gender" formControlName="gender" value= "{{ employee.gender }}">
+                <select class="form-control" name="gender" id="gender" formControlName="gender" [ngModel]="employee?.gender">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
             </div>
             <div class="form-group">
               <label class="control-label" for="dob">Date of Birth</label>
-              <input class="form-control" type="text" name="dob" id="dob" formControlName="dob" value= "{{ employee.dob }}">
+              <input class="form-control" type="text" name="dob" id="dob" formControlName="dob" [ngModel]="employee?.dob">
             </div>
             <div class="form-group">
               <label class="control-label" for="nationality">Nationality</label>
-              <input class="form-control" type="text" name="nationality" id="nationality" formControlName="nationality" value= "{{ employee.nationality }}">
+              <input class="form-control" type="text" name="nationality" id="nationality" formControlName="nationality" [ngModel]="employee?.nationality">
             </div>
             <div class="form-group">
-              <label class="control-label" for="marital">Marital Status</label>
-              <input class="form-control" type="text" name="marital" id="marital" formControlName="marital" value= "{{ employee.maritalStatus }}">
+              <label class="control-label" for="maritalStatus">Marital Status</label>
+              <input class="form-control" type="text" name="maritalStatus" id="maritalStatus" formControlName="maritalStatus" [ngModel]="employee?.maritalStatus">
             </div>
             <div class="form-group">
               <label class="control-label" for="phone">Phone</label>
-              <input class="form-control" type="text" name="phone" id="phone" formControlName="phone" value= "{{ employee.phone }}">
+              <input class="form-control" type="text" name="phone" id="phone" formControlName="phone" [ngModel]="employee?.phone">
             </div>
         </div>
         <div class="col-md-5" id="formcolumn">
             <div class="form-group">
-              <label class="control-label" for="subdiv">Sub Division</label>
-              <input class="form-control" type="text" name="subdiv" id="subdiv" formControlName="subdiv" value= "{{ employee.subDivision }}">
+                <label class="control-label" for="division">Division</label>
+                <input class="form-control" type="text" name="division" id="division" formControlName="division" [ngModel]="employee?.division">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="subDivision">Sub Division</label>
+              <input class="form-control" type="text" name="subDivision" id="subDivision" formControlName="subDivision" [ngModel]="employee?.subDivision">
             </div>
             <div class="form-group">
               <label class="control-label" for="status">Status</label>
-              <input class="form-control" type="text" name="status" id="status" formControlName="status" value= "{{ employee.status }}">
+              <input class="form-control" type="text" name="status" id="status" formControlName="status" [ngModel]="employee?.status">
             </div>
             <div class="form-group">
-              <label class="control-label" for="suspenddate">Suspend Date</label>
-              <input class="form-control" type="text" name="suspenddate" id="suspenddate" formControlName="suspenddate" value= "{{ employee.suspendDate }}">
+              <label class="control-label" for="suspendDate">Suspend Date</label>
+              <input class="form-control" type="text" name="suspendDate" id="suspendDate" formControlName="suspendDate" [ngModel]="employee?.suspendDate">
             </div>
             <div class="form-group">
-              <label class="control-label" for="hireddate">Hired Date</label>
-              <input class="form-control" type="text" name="hireddate" id="hireddate" formControlName="hireddate" value= "{{ employee.hiredDate }}">
+              <label class="control-label" for="hiredDate">Hired Date</label>
+              <input class="form-control" type="text" name="hiredDate" id="hiredDate" formControlName="hiredDate" [ngModel]="employee?.hiredDate">
             </div>
             <div class="form-group">
               <label class="control-label" for="grade">Grade</label>
-              <input class="form-control" type="text" name="grade" id="grade" formControlName="grade" value= "{{ employee.grade }}">
+              <input class="form-control" type="text" name="grade" id="grade" formControlName="grade" [ngModel]="employee?.grade">
             </div>
             <div class="form-group">
               <label class="control-label" for="email">Email</label>
-              <input class="form-control" type="text" name="email" id="email" formControlName="email" value= "{{ employee.email }}">
+              <input class="form-control" type="text" name="email" id="email" formControlName="email" [ngModel]="employee?.email">
             </div>
             <div class="form-group">
-              <label class="control-label" for="office">Office Location</label>
-              <input class="form-control" type="text" name="office" id="office" formControlName="office" value= "{{ employee.locationId }}">
+              <label class="control-label" for="locationId">Office Location</label>
+              <input class="form-control" type="text" name="locationId" id="locationId" formControlName="locationId" [ngModel]="employee?.locationId">
             </div>
+              <input type="hidden" name="imageUrl" id="imageUrl" formControlName="imageUrl" [ngModel]="employee?.imageUrl">
+
         </div>
         <div class="col-sm-2" id="formcoloumn">
           <img src="{{ employee.imageUrl }}">
         </div>
       </div>
       <div class="row">
-        <button >Cancel</button>
-        <button type="submit" [disabled]="!form.valid">Save</button>
+        <button type="submit">Save</button>
       </div>
     </form>
 </section>

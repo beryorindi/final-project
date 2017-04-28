@@ -1,9 +1,9 @@
 <section>
-    <button type="button" class="btn btn-circle btn-lg">
+    <button type="button" class="btn btn-circle btn-lg" (click)="onSearch()">
         <span class="glyphicon glyphicon-search"></span>
     </button>
-    <input type="text" name="search" id="search" placeholder="Search">
-    <button type="button" class="btn btn-circle btn-lg" *ngIf="media">
+    <input type="text" name="search" id="search" placeholder="Search" *ngIf="searchclick" #search (keyup)="onKeyPress(search)">
+    <button type="button" class="btn btn-circle btn-lg" *ngIf="employee" (click)="onDelete(employee.id)">
         <span class="glyphicon glyphicon-trash"></span>
     </button>
     <button type="button" class="btn btn-circle btn-lg">

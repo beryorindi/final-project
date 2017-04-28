@@ -13,6 +13,7 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 
 import { EmployeeService } from './employee.service';
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
+import { LastnameSearchPipe } from './pipes/lastname-search.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EmployeeAddComponent } from './employee-add/employee-add.component';
     SearchBarComponent,
     NavigationBarComponent,
     EmployeeDetailComponent,
-    EmployeeAddComponent
+    EmployeeAddComponent,
+    LastnameSearchPipe
   ],
   imports: [
     BrowserModule,

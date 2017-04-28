@@ -1,13 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
 
+import { EmployeeService } from '../employee.service';
+import { FilterService } from '../service/filter.service';
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  @Input() media;
+  searchclick = false;
+  @Input() employee;
   form;
     onSubmit(mediaItem) {
     //this.mediaItemService.add(mediaItem)
@@ -15,13 +17,28 @@ export class SearchBarComponent implements OnInit {
     }
 
     constructor(
-    private formBuilder: FormBuilder
+    private filterService: FilterService,
+    private employeeService: EmployeeService
     ){}
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
-      search: this.formBuilder.control('Search')
-    });
+    
   }
 
+  onDelete(Id){
+    this.employeeService.delete(Id);
+  }
+
+  onSearch(){
+    if(this.searchclick){
+      this.searchclick = false;
+    }
+    else{
+      this.searchclick = true;
+    } 
+  }
+
+  onKeyPress(search) {
+    this.filterService.setSearchQuery(search.value);
+  }
 }

@@ -1,7 +1,8 @@
 <section>
-    <app-employee *ngFor="let employee of employees"
+    <app-employee *ngFor="let employee of (employees$ | async  
+    | lastnameSearch:(filter$|async).searchQuery)"
     [employee]="employee"
-    (loaddetail)="loadEmployeeDetail($event)" 
+    (loaddetail)="loadEmployeeDetail($event)"
     ></app-employee>
     <button type="button" class="btn btn-circle btn-lg" id="right" (click)="clearForm()">
         <span class="glyphicon glyphicon-plus"></span>

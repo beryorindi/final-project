@@ -3,16 +3,17 @@
       <div class = "popup-content">
       <form class="form-horizontal"
         [formGroup]="formadd"
+        (ngSubmit)="add(formadd.value)"
         >
         <div class="row">
           <div class="col-md-5" id="formcolumn">
               <div class="form-group">
-                <label class="control-label" for="firstname">First Name</label>
-                <input class="form-control" type="text" name="firstname" id="firstname" formControlName="firstname">
+                <label class="control-label" for="firstName">First Name</label>
+                <input class="form-control" type="text" name="firstName" id="firstName" formControlName="firstName">
               </div>
               <div class="form-group">
-                <label class="control-label" for="lastname">Last Name</label>
-                <input class="form-control" type="text" name="lastname" id="lastname" formControlName="lastname" >
+                <label class="control-label" for="lastName">Last Name</label>
+                <input class="form-control" type="text" name="lastName" id="lastName" formControlName="lastName" >
               </div>
               <div class="form-group">
                   <label class="control-label" for="gender">Gender</label>
@@ -30,8 +31,8 @@
                 <input class="form-control" type="text" name="nationality" id="nationality" formControlName="nationality">
               </div>
               <div class="form-group">
-                <label class="control-label" for="marital">Marital Status</label>
-                <input class="form-control" type="text" name="marital" id="marital" formControlName="marital">
+                <label class="control-label" for="maritalStatus">Marital Status</label>
+                <input class="form-control" type="text" name="maritalStatus" id="maritalStatus" formControlName="maritalStatus">
               </div>
               <div class="form-group">
                 <label class="control-label" for="phone">Phone</label>
@@ -40,20 +41,24 @@
           </div>
           <div class="col-md-5" id="formcolumn">
               <div class="form-group">
-                <label class="control-label" for="subdiv">Sub Division</label>
-                <input class="form-control" type="text" name="subdiv" id="subdiv" formControlName="subdiv">
+                <label class="control-label" for="division">Division</label>
+                <input class="form-control" type="text" name="division" id="division" formControlName="division">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="subDivision">Sub Division</label>
+                <input class="form-control" type="text" name="subDivision" id="subDivision" formControlName="subDivision">
               </div>
               <div class="form-group">
                 <label class="control-label" for="status">Status</label>
                 <input class="form-control" type="text" name="status" id="status" formControlName="status">
               </div>
               <div class="form-group">
-                <label class="control-label" for="suspenddate">Suspend Date</label>
-                <input class="form-control" type="text" name="suspenddate" id="suspenddate" formControlName="suspenddate">
+                <label class="control-label" for="suspendDate">Suspend Date</label>
+                <input class="form-control" type="text" name="suspendDate" id="suspendDate" formControlName="suspendDate">
               </div>
               <div class="form-group">
-                <label class="control-label" for="hireddate">Hired Date</label>
-                <input class="form-control" type="text" name="hireddate" id="hireddate" formControlName="hireddate">
+                <label class="control-label" for="hiredDate">Hired Date</label>
+                <input class="form-control" type="text" name="hiredDate" id="hiredDate" formControlName="hiredDate">
               </div>
               <div class="form-group">
                 <label class="control-label" for="grade">Grade</label>
@@ -64,8 +69,8 @@
                 <input class="form-control" type="text" name="email" id="email" formControlName="email">
               </div>
               <div class="form-group">
-                <label class="control-label" for="office">Office Location</label>
-                <input class="form-control" type="text" name="office" id="office" formControlName="office">
+                <label class="control-label" for="locationId">Office Location</label>
+                <input class="form-control" type="text" name="locationId" id="locationId" formControlName="locationId">
               </div>
           </div>
           <div class="col-sm-2" id="formcolomn">
@@ -73,7 +78,7 @@
           </div>
         </div>
         <div class="row">
-          <button (click)="closePopup()">Cancel</button>
+          <button type="button" (click)="closePopup()">Cancel</button>
           <button type="submit" [disabled]="!formadd.valid">Save</button>
         </div>
       </form>
