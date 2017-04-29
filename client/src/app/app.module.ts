@@ -17,8 +17,8 @@ import { LocationService } from './service/location.service';
 
 import { LastnameSearchPipe } from './pipes/lastname-search.pipe';
 import { FilterGenderPipe } from './pipes/filter-gender.pipe';
-import { FilterLocationPipe } from './pipes/filter-location.pipe';
 import { SortingNamePipe } from './pipes/sorting-name.pipe';
+import { FilterLocationPipe } from './pipes/filter-location.pipe';
 
 @NgModule({
   declarations: [
@@ -32,8 +32,8 @@ import { SortingNamePipe } from './pipes/sorting-name.pipe';
     EmployeeAddComponent,
     LastnameSearchPipe,
     FilterGenderPipe,
-    FilterLocationPipe,
-    SortingNamePipe
+    SortingNamePipe,
+    FilterLocationPipe
   ],
   imports: [
     BrowserModule,

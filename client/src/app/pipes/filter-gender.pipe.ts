@@ -14,7 +14,7 @@ export class FilterGenderPipe implements PipeTransform {
     }
 
     return employees.filter(employee =>
-      employee.gender.toLowerCase() === gender
+      employee.gender.toLowerCase() == gender
     );
   }
 

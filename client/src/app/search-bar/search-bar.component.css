@@ -31,3 +31,13 @@ input {
   line-height: 1.33;
   border-radius: 25px;
 }
+
+#myModal{
+  position: absolute;
+  height: 150px;
+  width: 100px;
+  z-index: 2;
+  display: block;
+  background-color: grey;
+  top : 50px;
+}

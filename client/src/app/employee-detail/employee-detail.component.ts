@@ -64,7 +64,7 @@ export class EmployeeDetailComponent implements OnInit {
     this.employeeService.update(employee);
   }
 
-   onChange(location: Location){
+  onChange(location: Location){
     this.locationID = location.id;
   }
   

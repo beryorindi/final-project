@@ -21,6 +21,6 @@ export class EmployeeComponent implements OnInit {
 
   loadEmployeeDetail(){
     this.loaddetail.emit(this.employee);
-    console.log(this.employee);
+    //console.log(this.employee);
   }
 }

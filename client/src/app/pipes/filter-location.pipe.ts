@@ -5,10 +5,16 @@ import { Employee } from '../model/employee.model';
   name: 'filterLocation'
 })
 export class FilterLocationPipe implements PipeTransform {
-  transform(employees: Employee[], location: string): Employee[] {
-    if (!location) {
+
+  transform(employees: Employee[], location: String): Employee[] {
+    if(!employees){
+      return null;
+    }else if(!location){
       return employees;
     }
-    //return employees.filter(employee => employee.empLocation.city == location);
+    return employees.filter(
+      employee => employee.emplocation.id == location
+    );
   }
+
 }
