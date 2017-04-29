@@ -7,6 +7,7 @@ import { FilterService } from './service/filter.service';
   providers: [FilterService]
 })
 export class AppComponent {
+  sort = false;
   media = null;
   add = false;
   loadEmployeeDetail(employee){

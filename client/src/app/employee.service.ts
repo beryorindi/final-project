@@ -53,7 +53,6 @@ export class EmployeeService {
   }
   update(employee) {
     let body = JSON.stringify(employee);
-    console.log(body);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 

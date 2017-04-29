@@ -1,6 +1,11 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
+
 import { EmployeeService } from '../employee.service';
+import { LocationService } from '../service/location.service';
+
+import { Location } from '../model/location.model';
+
 @Component({
   selector: 'app-employee-detail',
   templateUrl: './employee-detail.component.html',
@@ -9,8 +14,12 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeDetailComponent implements OnInit {
   form;
   @Input() employee;
+  private locations: Location [];
+  locationID : String;
+
   constructor( private formBuilder: FormBuilder,
-  private employeeService : EmployeeService){}
+  private employeeService : EmployeeService,
+  private locationService: LocationService){}
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -33,16 +42,30 @@ export class EmployeeDetailComponent implements OnInit {
       hiredDate: this.formBuilder.control(''),
       grade: this.formBuilder.control(''),
       email: this.formBuilder.control(''),
-      locationId: this.formBuilder.control(''),
+      emplocation: this.formBuilder.control(''),
       division : this.formBuilder.control(''),
       id : this.formBuilder.control(''),
       imageUrl : this.formBuilder.control('')
     });
+     this.locationService.get()
+      .subscribe(response => this.locations = response);
   }
 
   update(employee) {
+    if(!this.locationID){
+      this.locationID = this.employee.emplocation.id;
+    }
+    let jsonLocation  = {
+      id : this.locationID
+    }
+    employee.emplocation = jsonLocation;
     //employee.photo = this.avatar;
+    //console.log(employee);
     this.employeeService.update(employee);
+  }
+
+   onChange(location: Location){
+    this.locationID = location.id;
   }
   
   

@@ -18,7 +18,9 @@ export class EmployeeListComponent implements OnInit {
   private filter$ : Observable<Filter>;
   private selectedLocation : String;
   private selectedEmployeeID : Employee;
+  
 
+  @Input() isSorted: boolean = false;
   @Output() selectedEmployee = new EventEmitter();
   @Output() add = new EventEmitter();
 

@@ -1,6 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
+
 import { EmployeeService } from '../employee.service';
+import { LocationService } from '../service/location.service';
+
+import { Location } from '../model/location.model';
 
 @Component({
   selector: 'app-employee-add',
@@ -9,9 +13,13 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeAddComponent implements OnInit {
   formadd;
+  private locations: Location [];
+  locationID : String;
+
   @Output() close = new EventEmitter();
   constructor( private formBuilder: FormBuilder,
-   private employeeService : EmployeeService
+   private employeeService : EmployeeService,
+   private locationService: LocationService,
    ) {  }
 
   ngOnInit() {
@@ -35,19 +43,30 @@ export class EmployeeAddComponent implements OnInit {
       hiredDate: this.formBuilder.control(''),
       grade: this.formBuilder.control(''),
       email: this.formBuilder.control(''),
-      locationId: this.formBuilder.control(''),
+      emplocation: this.formBuilder.control(''),
       division : this.formBuilder.control('')
     });
+    this.locationService.get()
+      .subscribe(response => this.locations = response);
   }
 
   closePopup(){
     this.close.emit();
   }
 
+   onChange(location: Location){
+    this.locationID = location.id;
+  }
+
   add(employee) {
+    let jsonLocation  = {
+      id : employee.emplocation
+    }
+    employee.emplocation = jsonLocation;
     employee.imageUrl = "../../media/employee.jpg";
-    //console.log(employee);
+    console.log(employee);
     this.employeeService.save(employee);
+    this.closePopup();
   }
 
 }

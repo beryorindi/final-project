@@ -18,6 +18,7 @@ export class FilterService {
   init(){
     this._states = {
       "searchQuery" : "",
+      "sortOrder" : "asc",
       "filter" : {
         "gender" : "",
         "location" : ""
@@ -42,6 +43,11 @@ export class FilterService {
 
   setLocation(location) {
     this._states.filter.location = location;
+    this.states.next(this._states);
+  }
+  
+  setSortOrder(sortOrder) {
+    this._states.sortOrder = sortOrder;
     this.states.next(this._states);
   }
 }

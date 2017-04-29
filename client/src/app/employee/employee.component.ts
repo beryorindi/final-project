@@ -10,8 +10,6 @@ export class EmployeeComponent implements OnInit {
   
   @Input() employee;
   @Output() loaddetail = new EventEmitter();
-  
- 
 
   constructor(
     
@@ -21,8 +19,8 @@ export class EmployeeComponent implements OnInit {
     
   }
 
-  loadEmlpoyeeDetail(){
+  loadEmployeeDetail(){
     this.loaddetail.emit(this.employee);
-    //console.log(this.employee);
+    console.log(this.employee);
   }
 }

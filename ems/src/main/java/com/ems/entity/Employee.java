@@ -6,9 +6,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+
+import com.ems.entity.Location;
 
 @Entity
 @Table(name="employee")
@@ -46,8 +50,9 @@ public class Employee {
 	private String division;
 	@Column(name="email", nullable=false)
 	private String email;
-	@Column(name="location_id")
-	private String locationId;
+	@ManyToOne
+	@JoinColumn(name = "emp_location")
+	private Location emplocation;
 	@Column(name="image_url", nullable=false)
 	private String imageUrl;
 	
@@ -68,7 +73,7 @@ public class Employee {
 			String grade,
 			String division,
 			String email,
-			String locationId,
+			Location emplocation,
 			String imageUrl
 	) {
 		setFirstName(firstName);
@@ -85,7 +90,7 @@ public class Employee {
 		setGrade(grade);
 		setDivision(division);
 		setEmail(email);
-		setLocationId(locationId);
+		setEmplocation(emplocation);
 		setImageUrl(imageUrl);
 	}
 
@@ -209,12 +214,12 @@ public class Employee {
 		this.email = email;
 	}
 
-	public String getLocationId() {
-		return locationId;
+	public Location getEmplocation() {
+		return emplocation;
 	}
 
-	public void setLocationId(String locationId) {
-		this.locationId = locationId;
+	public void setEmplocation(Location emplocation) {
+		this.emplocation = emplocation;
 	}
 
 	public String getImageUrl() {

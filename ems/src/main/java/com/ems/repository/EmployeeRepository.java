@@ -6,4 +6,4 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import com.ems.entity.Employee;
 
 @RestResource
-public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {}
+public interface EmployeeRepository extends PagingAndSortingRepository<Employee, String> {}

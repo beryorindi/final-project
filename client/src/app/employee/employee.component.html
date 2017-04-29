@@ -1,4 +1,4 @@
-<div class="card-block" (click)="loadEmlpoyeeDetail()">
+<div class="card-block" (click)="loadEmployeeDetail()">
     <div class="row">
         <div class="col-sm-3">
             <img class="img-circle" src="{{ employee.imageUrl }}" alt="image">
@@ -11,7 +11,7 @@
                 <span class="left">{{ employee.grade }}, {{ employee.division }}</span>    
             </div>
             <div class="row">
-                <span class="left">{{ employee.locationId }}, {{ employee.phone }}</span>
+                <span class="left">{{ employee.emplocation.city }}, {{ employee.phone }}</span>
             </div>
         </div>
         <div class="col-sm-3">

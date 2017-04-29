@@ -69,8 +69,10 @@
                 <input class="form-control" type="text" name="email" id="email" formControlName="email">
               </div>
               <div class="form-group">
-                <label class="control-label" for="locationId">Office Location</label>
-                <input class="form-control" type="text" name="locationId" id="locationId" formControlName="locationId">
+                  <label class="control-label" for="emplocation">Office Location</label>
+                  <select class="form-control" name="emplocation" id="emplocation" formControlName="emplocation">
+                      <option *ngFor="let l of locations" [value]="l.id" (click)="onChange(l)">{{l.city}}</option>
+                  </select>
               </div>
           </div>
           <div class="col-sm-2" id="formcolomn">

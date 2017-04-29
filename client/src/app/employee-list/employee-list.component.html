@@ -1,6 +1,7 @@
 <section>
     <app-employee *ngFor="let employee of (employees$ | async  
-    | lastnameSearch:(filter$|async).searchQuery)"
+    | lastnameSearch:(filter$|async).searchQuery
+    | sortingName:(filter$|async).sortOrder)"
     [employee]="employee"
     (loaddetail)="loadEmployeeDetail($event)"
     ></app-employee>

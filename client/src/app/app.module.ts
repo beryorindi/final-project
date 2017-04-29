@@ -10,10 +10,15 @@ import { LoginBarComponent } from './login-bar/login-bar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { EmployeeAddComponent } from './employee-add/employee-add.component';
 
 import { EmployeeService } from './employee.service';
-import { EmployeeAddComponent } from './employee-add/employee-add.component';
+import { LocationService } from './service/location.service';
+
 import { LastnameSearchPipe } from './pipes/lastname-search.pipe';
+import { FilterGenderPipe } from './pipes/filter-gender.pipe';
+import { FilterLocationPipe } from './pipes/filter-location.pipe';
+import { SortingNamePipe } from './pipes/sorting-name.pipe';
 
 @NgModule({
   declarations: [
@@ -25,14 +30,17 @@ import { LastnameSearchPipe } from './pipes/lastname-search.pipe';
     NavigationBarComponent,
     EmployeeDetailComponent,
     EmployeeAddComponent,
-    LastnameSearchPipe
+    LastnameSearchPipe,
+    FilterGenderPipe,
+    FilterLocationPipe,
+    SortingNamePipe
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

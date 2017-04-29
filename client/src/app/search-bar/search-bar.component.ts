@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 import { EmployeeService } from '../employee.service';
 import { FilterService } from '../service/filter.service';
@@ -9,6 +9,7 @@ import { FilterService } from '../service/filter.service';
 })
 export class SearchBarComponent implements OnInit {
   searchclick = false;
+  ascending = true;
   @Input() employee;
   form;
     onSubmit(mediaItem) {
@@ -40,5 +41,22 @@ export class SearchBarComponent implements OnInit {
 
   onKeyPress(search) {
     this.filterService.setSearchQuery(search.value);
+  }
+
+  sortAscending() {
+    this.filterService.setSortOrder('asc');
+  }
+
+  sortDescending() {
+    this.filterService.setSortOrder('desc');
+  }
+
+  sorting(){
+    if(this.ascending){
+      this.ascending = false;
+    }
+    else{
+      this.ascending = true;
+    }
   }
 }

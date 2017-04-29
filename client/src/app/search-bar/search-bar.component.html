@@ -9,9 +9,13 @@
     <button type="button" class="btn btn-circle btn-lg">
         <span class="glyphicon glyphicon-filter"></span>
     </button>
-    <button type="button" class="btn btn-circle btn-lg">
-        <span class="glyphicon glyphicon-sort-by-attributes"></span>
+    <button type="button" class="btn btn-circle btn-lg" (click)="sortAscending()" *ngIf="!ascending" (click)="sorting()">
+        <span class="glyphicon glyphicon-sort-by-alphabet"></span>
     </button>
+    <button type="button" class="btn btn-circle btn-lg" (click)="sortDescending()" *ngIf="ascending" (click)="sorting()">
+        <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+    </button>
+    
     <span id="employee-num">1</span>
     
 </section>
