@@ -13,7 +13,7 @@ export class FilterLocationPipe implements PipeTransform {
       return employees;
     }
     return employees.filter(
-      employee => employee.emplocation.id == location
+      employee => employee.location.id == location
     );
   }
 

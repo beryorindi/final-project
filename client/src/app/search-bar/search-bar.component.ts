@@ -15,11 +15,14 @@ import { Filter } from '../model/filter.model';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
+  @Input() counter;
   private searchclick = false;
   private ascending = true;
   private filter = false;
+  private delete = false;
   @Input() employee;
   private locations: Location [];
+  private selectedGender;
   form;
 
   private employees$ : Observable<Employee[]>;
@@ -43,6 +46,7 @@ export class SearchBarComponent implements OnInit {
 
   onDelete(Id){
     this.employeeService.delete(Id);
+    this.delete = false;
   }
 
   onSearch(){
@@ -59,11 +63,13 @@ export class SearchBarComponent implements OnInit {
   }
 
   filters(gender){
+    this.selectedGender = gender;
     this.filterService.setGender(gender);
   }
 
   filterLocation(locationId) {
-    console.log(locationId);
+    //console.log(locationId);
+    this.selectedLocation = locationId;
     this.filterService.setLocation(locationId);
   }
 
@@ -91,5 +97,14 @@ export class SearchBarComponent implements OnInit {
     else{
       this.filter = false;
     } 
+  }
+
+  toggleDelete(){
+    if(this.delete == true){
+      this.delete = false;
+    }
+    else{
+      this.delete = true;
+    }
   }
 }

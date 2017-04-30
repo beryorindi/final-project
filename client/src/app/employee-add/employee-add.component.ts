@@ -15,6 +15,7 @@ export class EmployeeAddComponent implements OnInit {
   formadd;
   private locations: Location [];
   locationID : String;
+  private uploadURL;
 
   @Output() close = new EventEmitter();
   constructor( private formBuilder: FormBuilder,
@@ -23,6 +24,13 @@ export class EmployeeAddComponent implements OnInit {
    ) {  }
 
   ngOnInit() {
+    this.uploadURL = '../../media/blank_profil.png';
+    this.locationService.get()
+      .subscribe(response => this.locations = response);
+    this.emptyForm();
+  }
+
+  emptyForm(){
     this.formadd = this.formBuilder.group({
       firstName: this.formBuilder.control('', Validators.compose([
         Validators.required,
@@ -43,11 +51,10 @@ export class EmployeeAddComponent implements OnInit {
       hiredDate: this.formBuilder.control(''),
       grade: this.formBuilder.control(''),
       email: this.formBuilder.control(''),
-      emplocation: this.formBuilder.control(''),
-      division : this.formBuilder.control('')
+      location: this.formBuilder.control(''),
+      division : this.formBuilder.control(''),
+      imageUrl:this.formBuilder.control(''),
     });
-    this.locationService.get()
-      .subscribe(response => this.locations = response);
   }
 
   closePopup(){
@@ -60,13 +67,23 @@ export class EmployeeAddComponent implements OnInit {
 
   add(employee) {
     let jsonLocation  = {
-      id : employee.emplocation
+      id : employee.location
     }
-    employee.emplocation = jsonLocation;
-    employee.imageUrl = "../../media/employee.jpg";
+    employee.location = jsonLocation;
+    employee.imageUrl = this.uploadURL;
     console.log(employee);
     this.employeeService.save(employee);
     this.closePopup();
+  }
+
+  imgProcess(photo){
+    var test;
+    var image = new FileReader();
+    image.onload = (photo: any)=>{
+      this.uploadURL = photo.target.result;
+    }
+    image.readAsDataURL(photo.target.files[0]);
+    
   }
 
 }

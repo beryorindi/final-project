@@ -18,3 +18,26 @@
     border: 1px solid #888;
     width: 50%;
 }
+
+.form-img {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.img {
+    float: left;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#upload{
+    cursor: pointer;
+    float : right;
+}
+
+#imageUrl{
+    display:none;
+}

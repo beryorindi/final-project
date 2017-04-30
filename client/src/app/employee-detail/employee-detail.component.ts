@@ -5,6 +5,7 @@ import { EmployeeService } from '../employee.service';
 import { LocationService } from '../service/location.service';
 
 import { Location } from '../model/location.model';
+import { Employee } from '../model/employee.model';
 
 @Component({
   selector: 'app-employee-detail',
@@ -13,15 +14,25 @@ import { Location } from '../model/location.model';
 })
 export class EmployeeDetailComponent implements OnInit {
   form;
-  @Input() employee;
+  @Input() employee : Employee;
   private locations: Location [];
   locationID : String;
+  private uploadURL;
 
   constructor( private formBuilder: FormBuilder,
   private employeeService : EmployeeService,
   private locationService: LocationService){}
 
   ngOnInit() {
+     this.locationService.get()
+      .subscribe(response => this.locations = response);
+      //this.uploadURL = this.employee.imageUrl;
+      //console.log(this.employee);
+      //console.log(this.uploadURL);
+      this.loadForm();
+  }
+
+  loadForm(){
     this.form = this.formBuilder.group({
       firstName: this.formBuilder.control('', Validators.compose([
         Validators.required,
@@ -42,30 +53,42 @@ export class EmployeeDetailComponent implements OnInit {
       hiredDate: this.formBuilder.control(''),
       grade: this.formBuilder.control(''),
       email: this.formBuilder.control(''),
-      emplocation: this.formBuilder.control(''),
+      location: this.formBuilder.control(''),
       division : this.formBuilder.control(''),
       id : this.formBuilder.control(''),
       imageUrl : this.formBuilder.control('')
     });
-     this.locationService.get()
-      .subscribe(response => this.locations = response);
   }
 
   update(employee) {
     if(!this.locationID){
-      this.locationID = this.employee.emplocation.id;
+      this.locationID = this.employee.location.id;
     }
     let jsonLocation  = {
       id : this.locationID
     }
-    employee.emplocation = jsonLocation;
-    //employee.photo = this.avatar;
-    //console.log(employee);
+    employee.location = jsonLocation;
+    if(this.uploadURL){
+      employee.imageUrl = this.uploadURL;
+    }
+    console.log(employee);
     this.employeeService.update(employee);
+    this.employee = employee;
+    this.uploadURL = null;
   }
 
   onChange(location: Location){
     this.locationID = location.id;
+  }
+
+  imgProcess(photo){
+    var test;
+    var image = new FileReader();
+    image.onload = (photo: any)=>{
+      this.uploadURL = photo.target.result;
+    }
+    image.readAsDataURL(photo.target.files[0]);
+    
   }
   
   

@@ -1,11 +1,11 @@
-insert into location (id, city) values ('1', 'Jakarta');
-insert into location (id, city) values ('2', 'Bandung');
+insert into location (id, city) values ('1', 'Bali');
+insert into location (id, city) values ('2', 'Jakarta');
 insert into location (id, city) values ('3', 'Yogyakarta');
-insert into location (id, city) values ('4', 'Bali');
+insert into location (id, city) values ('4', 'Bandung');
 
 insert into employee (id, first_name, last_name, gender, dob, nationality, marital_status, phone, email, hired_date, suspend_date, division, grade, sub_division, status, image_url, location_id)
  values (
-    '3',
+ 	'1',
     'John',
     'Cena',
     'male',
@@ -20,12 +20,12 @@ insert into employee (id, first_name, last_name, gender, dob, nationality, marit
     'SE - AP',
     'Java Bootcamp',
     'Permanent',
-    '1.jpg',
+    '../media/blank_profil.jpg',
     '1'
 );
-insert into employee (id, first_name, last_name, gender, dob, nationality, marital_status, phone, email, hired_date, suspend_date, division, grade, sub_division, status, image_url, location_id)
+insert into employee (id,first_name, last_name, gender, dob, nationality, marital_status, phone, email, hired_date, suspend_date, division, grade, sub_division, status, image_url, location_id)
  values (
-    '2',
+ 	'2',
     'Johnny',
     'Depay',
     'male',
@@ -40,6 +40,6 @@ insert into employee (id, first_name, last_name, gender, dob, nationality, marit
     'SE - AP',
     'Php Bootcamp',
     'Contract',
-    '1.jpg',
+	'../media/blank_profil.jpg',
     '2'
 );

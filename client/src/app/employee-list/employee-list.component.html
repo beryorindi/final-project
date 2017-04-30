@@ -8,6 +8,14 @@
     [employee]="employee"
     (loaddetail)="loadEmployeeDetail($event)"
     ></app-employee>
+    <div class="not-found" *ngIf="(employees$ | async  
+    | lastnameSearch:(filter$|async).searchQuery
+    | sortingName:(filter$|async).sortOrder 
+    | filterGender:(filter$|async).filter.gender
+    | filterLocation:(filter$|async).filter.location
+    ).length == 0">
+        Not Found
+    </div>
     <button type="button" class="btn btn-circle btn-lg" id="right" (click)="clearForm()">
         <span class="glyphicon glyphicon-plus"></span>
     </button>

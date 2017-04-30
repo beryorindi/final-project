@@ -40,4 +40,14 @@ input {
   display: block;
   background-color: grey;
   top : 50px;
+  
+}
+
+#deleteModal{
+  position: absolute;
+  height: 150px;
+  width: 100px;
+  z-index: 2;
+  display: block;
+  background-color: blue;
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-//import { LocationService } from '../shared/services/location.service';
 import { EmployeeService } from '../employee.service';
 import { FilterService } from '../service/filter.service';
 import { Employee } from '../model/employee.model';
@@ -18,8 +17,8 @@ export class EmployeeListComponent implements OnInit {
   private filter$ : Observable<Filter>;
   private selectedLocation : String;
   private selectedEmployeeID : Employee;
+  private found = true;
   
-
   @Input() isSorted: boolean = false;
   @Output() selectedEmployee = new EventEmitter();
   @Output() add = new EventEmitter();
@@ -28,6 +27,7 @@ export class EmployeeListComponent implements OnInit {
   loadEmployeeDetail(employee){
     this.media = employee;
     this.selectedEmployee.emit(employee);
+    
     //console.log(this.media);
   }
 
@@ -43,16 +43,18 @@ export class EmployeeListComponent implements OnInit {
 
   ngOnInit() {
     this.employees$ = this.employeeService.get();
-    //this.locations$ = this.locationService.get();
     this.filter$ = this.filterService.get();
     this.getEmployees();
   }
 
   getEmployees() {
-    this.employeeService.get()
+      this.employeeService.get()
       .subscribe(employees => {
         this.employees = employees;
       });
   }
+
+
+
 
 }

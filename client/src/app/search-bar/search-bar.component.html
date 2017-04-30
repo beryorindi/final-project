@@ -3,7 +3,7 @@
         <span class="glyphicon glyphicon-search"></span>
     </button>
     <input type="text" name="search" id="search" placeholder="Search" *ngIf="searchclick" #search (keyup)="onKeyPress(search)">
-    <button type="button" class="btn btn-circle btn-lg" *ngIf="employee" (click)="onDelete(employee.id)">
+    <button type="button" class="btn btn-circle btn-lg" *ngIf="employee" (click)="toggleDelete()">
         <span class="glyphicon glyphicon-trash"></span>
     </button>
     <button type="button" class="btn btn-circle btn-lg" (click)="filtering()">
@@ -16,7 +16,11 @@
         <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
     </button>
     
-    <span id="employee-num">1</span>
+    <span id="employee-num">{{(employees$ | async  
+    | lastnameSearch:(filter$|async).searchQuery
+    | sortingName:(filter$|async).sortOrder 
+    | filterGender:(filter$|async).filter.gender
+    | filterLocation:(filter$|async).filter.location).length}} </span>
 
     <div  id="myModal" *ngIf="filter">
             <div class="form-group" >
@@ -29,11 +33,22 @@
             </div>
             <div class="form-group">
                 <label for="location">Location</label>
-                  <select class="form-control" name="location" id="location" #loc (change)="filterLocation(loc.value)">>
+                  <select class="form-control" name="location" id="location" #loc (change)="filterLocation(loc.value)">
                       <option value="">All</option>
                       <option *ngFor="let l of locations" [value]="l.id">{{l.city}}</option>
                   </select>
             </div>
+
+    </div>
+
+    <div id="deleteModal" role="dialog" *ngIf="delete">
+        
+            
+                <p>Do you want to delete this?</p>
+
+                <button type="button" class="btn btn-default" (click)="toggleDelete()">No</button>
+                <button type="button" class="btn btn-default" (click)="onDelete(employee.id)">Yes</button>
+
 
     </div>
       

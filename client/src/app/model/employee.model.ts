@@ -15,6 +15,6 @@ export class Employee {
   grade:String;
   division:String;
   email:String;
-  emplocation:Location;
+  location:Location;
   imageUrl:String;
 }

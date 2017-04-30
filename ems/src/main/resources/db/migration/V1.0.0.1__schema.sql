@@ -22,7 +22,7 @@ create table employee (
     grade varchar(45) not null,
     sub_division varchar(45) not null,
     status varchar(20) not null,
-    image_url varchar(255),
+    image_url text,
     location_id varchar(255) not null,
     primary key (id),
     foreign key (location_id) references location(id)

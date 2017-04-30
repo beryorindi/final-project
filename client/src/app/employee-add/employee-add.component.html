@@ -69,14 +69,18 @@
                 <input class="form-control" type="text" name="email" id="email" formControlName="email">
               </div>
               <div class="form-group">
-                  <label class="control-label" for="emplocation">Office Location</label>
-                  <select class="form-control" name="emplocation" id="emplocation" formControlName="emplocation">
+                  <label class="control-label" for="location">Office Location</label>
+                  <select class="form-control" name="location" id="location" formControlName="location">
                       <option *ngFor="let l of locations" [value]="l.id" (click)="onChange(l)">{{l.city}}</option>
                   </select>
               </div>
           </div>
-          <div class="col-sm-2" id="formcolomn">
-            <img src="">
+          <div class="col-md-2" id="formcolumn">
+                 <i id="upload" class="glyphicon glyphicon-camera" (click)="fileInput.click()"></i>
+                 <img class="img" [src]="uploadURL" (click)="fileInput.click()">
+                 <input #fileInput  name="imageUrl" id="imageUrl" type="file" 
+                    (change)="imgProcess($event)" accept="image/*" 
+                    formControlName="imageUrl"/>
           </div>
         </div>
         <div class="row">
