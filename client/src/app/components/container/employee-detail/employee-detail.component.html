@@ -4,7 +4,7 @@
       (ngSubmit)="update(form.value)"
       >
       <div class="row">
-        <div class="col-sm-5" id="formcolumn">
+        <div class="col col-sm-5">
             <input type="hidden" name="id" id="id" formControlName="id" [ngModel]="employee?.id">
             <div class="form-group">
               <label class="control-label" for="firstName">First Name</label>
@@ -43,7 +43,7 @@
               <input class="form-control" type="text" name="phone" id="phone" formControlName="phone" [ngModel]="employee?.phone">
             </div>
         </div>
-        <div class="col-sm-5" id="formcolumn">
+        <div class="col col-sm-5">
             <div class="form-group">
                 <label class="control-label" for="division">Division</label>
                 <input class="form-control" type="text" name="division" id="division" formControlName="division" [ngModel]="employee?.division">
@@ -82,17 +82,16 @@
                   </select>
             </div>
           </div>
-          <div class="col-sm-2" id="formcolumn">
+          <div class="col col-sm-2">
             <i id="upload" class="glyphicon glyphicon-camera" (click)="fileInput.click()"></i>
             <img class="img" src="{{ employee.imageUrl }}" *ngIf="!uploadURL">
             <img class="img" [src]="uploadURL" *ngIf="uploadURL">
-            <input #fileInput  name="imageUrl" id="imageUrl" type="file" 
-                  (change)="imgProcess($event)" accept="image/*" formControlName="imageUrl"/>
           </div>
       </div>
       <div class="row">
         <button type="submit" class="btn btn-success">Save</button>
       </div>
+      <input #fileInput  name="imageUrl" id="imageUrl" type="file" (change)="imgProcess($event)" accept="image/*" formControlName="imageUrl"/>
     </form>
 </section>
 

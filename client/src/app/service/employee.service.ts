@@ -3,7 +3,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { BehaviorSubject } from 'rxjs/Rx';
 
-import { Employee } from './model/employee.model';
+import { Employee } from '../model/employee.model';
 
 @Injectable()
 export class EmployeeService {

@@ -4,15 +4,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { LoginBarComponent } from './login-bar/login-bar.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
-import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
-import { EmployeeAddComponent } from './employee-add/employee-add.component';
+import { EmployeeComponent } from './components/container/employee/employee.component';
+import { EmployeeListComponent } from './components/container/employee-list/employee-list.component';
+import { LoginBarComponent } from './components/header/login-bar/login-bar.component';
+import { SearchBarComponent } from './components/header/search-bar/search-bar.component';
+import { NavigationBarComponent } from './components/header/navigation-bar/navigation-bar.component';
+import { EmployeeDetailComponent } from './components/container/employee-detail/employee-detail.component';
+import { EmployeeAddComponent } from './components/container/employee-add/employee-add.component';
 
-import { EmployeeService } from './employee.service';
+import { EmployeeService } from './service/employee.service';
 import { LocationService } from './service/location.service';
 
 import { LastnameSearchPipe } from './pipes/lastname-search.pipe';

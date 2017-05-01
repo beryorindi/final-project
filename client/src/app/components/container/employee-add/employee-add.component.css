@@ -16,21 +16,13 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 50%;
-}
-
-.form-img {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    width: 60%;
 }
 
 img{
     border-radius: 50%;
     width : 100px;
     height: 100px;
-    position: absolute;
-    z-index: 1;
 }
 
 #upload{
@@ -46,4 +38,8 @@ img{
 
 .btn{
     text-align: right;
+}
+
+.col{
+    padding: 20px;
 }

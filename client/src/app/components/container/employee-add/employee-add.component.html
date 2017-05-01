@@ -6,7 +6,7 @@
         (ngSubmit)="add(formadd.value)"
         >
         <div class="row">
-          <div class="col-md-5" id="formcolumn">
+          <div class="col col-md-5">
               <div class="form-group">
                 <label class="control-label" for="firstName">First Name</label>
                 <input class="form-control" type="text" name="firstName" id="firstName" formControlName="firstName">
@@ -43,7 +43,7 @@
                 <input class="form-control" type="text" name="phone" id="phone" formControlName="phone">
               </div>
           </div>
-          <div class="col-md-5" id="formcolumn">
+          <div class="col col-md-5">
               <div class="form-group">
                 <label class="control-label" for="division">Division</label>
                 <input class="form-control" type="text" name="division" id="division" formControlName="division">
@@ -81,7 +81,7 @@
                   </select>
               </div>
           </div>
-          <div class="col-md-2" id="formcolumn">
+          <div class="col col-md-2">
                  <i id="upload" class="glyphicon glyphicon-camera" (click)="fileInput.click()"></i>
                  <img class="img" [src]="uploadURL" (click)="fileInput.click()">
                  <input #fileInput  name="imageUrl" id="imageUrl" type="file" 

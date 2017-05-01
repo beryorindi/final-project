@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { EmployeeService } from '../employee.service';
-import { FilterService } from '../service/filter.service';
-import { LocationService } from '../service/location.service';
+import { EmployeeService } from '../../../service/employee.service';
+import { FilterService } from '../../../service/filter.service';
+import { LocationService } from '../../../service/location.service';
 
-import { Location } from '../model/location.model';
-import { Employee } from '../model/employee.model';
-import { Filter } from '../model/filter.model';
+import { Location } from '../../../model/location.model';
+import { Employee } from '../../../model/employee.model';
+import { Filter } from '../../../model/filter.model';
 
 @Component({
   selector: 'app-search-bar',

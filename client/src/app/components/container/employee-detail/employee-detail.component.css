@@ -2,34 +2,31 @@
   display: flex;
   padding: 20px;
   margin: 0;
-  height: 100%;
-  width: 100%;
   max-height: 700px;
 }
 
-#formcolumn{
-  padding : 20px;
+.col{
+  padding : 25px;
 }
 
 img{
     border-radius: 50%;
     width : 100px;
     height: 100px;
-    position: absolute;
-    z-index: 1;
 }
 
 #upload{
     cursor: pointer;
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     top : 25px;
 }
 
-#imageUrl{
-    display:none;
-}
 
 .btn{
     float: right;
+}
+
+#imageUrl{
+    display: none;
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { EmployeeService } from '../employee.service';
-import { FilterService } from '../service/filter.service';
-import { Employee } from '../model/employee.model';
-import { Filter } from '../model/filter.model';
+import { EmployeeService } from '../../../service/employee.service';
+import { FilterService } from '../../../service/filter.service';
+import { Employee } from '../../../model/employee.model';
+import { Filter } from '../../../model/filter.model';
 
 
 @Component({

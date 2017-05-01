@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, Output, Inject } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 
-import { EmployeeService } from '../employee.service';
-import { LocationService } from '../service/location.service';
+import { EmployeeService } from '../../../service/employee.service';
+import { LocationService } from '../../../service/location.service';
 
-import { Location } from '../model/location.model';
-import { Employee } from '../model/employee.model';
+import { Location } from '../../../model/location.model';
+import { Employee } from '../../../model/employee.model';
 
-import { lookupListToken } from '../providers/provider';
+import { lookupListToken } from '../../../providers/provider';
 
 @Component({
   selector: 'app-employee-detail',
