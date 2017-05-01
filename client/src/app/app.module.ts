@@ -20,6 +20,8 @@ import { FilterGenderPipe } from './pipes/filter-gender.pipe';
 import { SortingNamePipe } from './pipes/sorting-name.pipe';
 import { FilterLocationPipe } from './pipes/filter-location.pipe';
 
+import { lookupListToken, lookupLists } from '../app/providers/provider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,11 @@ import { FilterLocationPipe } from './pipes/filter-location.pipe';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [EmployeeService, LocationService],
+  providers: [
+  EmployeeService, 
+  LocationService, 
+  { provide: lookupListToken, useValue: lookupLists}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

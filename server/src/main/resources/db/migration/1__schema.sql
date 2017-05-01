@@ -1,4 +1,4 @@
-drop table if exists location, employees;
+drop table if exists location, employee;
 
 create table location (
 	id varchar(255) not null,
@@ -14,8 +14,8 @@ create table employee (
     dob date not null,
     nationality varchar(45) not null,
     marital_status varchar(7) not null,
-    phone varchar(15) not null,
-    email varchar(50) not null,
+    phone varchar(15) not null unique,
+    email varchar(50) not null unique,
     hired_date date not null,
     suspend_date date,
     division varchar(45) not null,
@@ -23,7 +23,7 @@ create table employee (
     sub_division varchar(45) not null,
     status varchar(20) not null,
     image_url text,
-    location_id varchar(255) not null,
+    location varchar(255) not null,
     primary key (id),
     foreign key (location_id) references location(id)
 );

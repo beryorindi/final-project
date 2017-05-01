@@ -51,8 +51,8 @@ public class Employee {
 	@Column(name="email", nullable=false)
 	private String email;
 	@ManyToOne
-	@JoinColumn(name = "emp_location")
-	private Location emplocation;
+	@JoinColumn(name = "location")
+	private Location location;
 	@Column(name="image_url", nullable=false)
 	private String imageUrl;
 	
@@ -73,7 +73,7 @@ public class Employee {
 			String grade,
 			String division,
 			String email,
-			Location emplocation,
+			Location location,
 			String imageUrl
 	) {
 		setFirstName(firstName);
@@ -90,16 +90,12 @@ public class Employee {
 		setGrade(grade);
 		setDivision(division);
 		setEmail(email);
-		setEmplocation(emplocation);
+		setLocation(location);
 		setImageUrl(imageUrl);
 	}
 
 	public String getId() {
 		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -214,12 +210,12 @@ public class Employee {
 		this.email = email;
 	}
 
-	public Location getEmplocation() {
-		return emplocation;
+	public Location getLocation() {
+		return location;
 	}
 
-	public void setEmplocation(Location emplocation) {
-		this.emplocation = emplocation;
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
 	public String getImageUrl() {
@@ -229,6 +225,4 @@ public class Employee {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	
-
 }

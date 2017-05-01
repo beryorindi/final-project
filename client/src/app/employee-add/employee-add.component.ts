@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 
 import { EmployeeService } from '../employee.service';
 import { LocationService } from '../service/location.service';
 
 import { Location } from '../model/location.model';
+
+import { lookupListToken } from '../providers/provider';
 
 @Component({
   selector: 'app-employee-add',
@@ -21,6 +23,7 @@ export class EmployeeAddComponent implements OnInit {
   constructor( private formBuilder: FormBuilder,
    private employeeService : EmployeeService,
    private locationService: LocationService,
+   @Inject(lookupListToken) public lookupLists
    ) {  }
 
   ngOnInit() {
@@ -61,8 +64,8 @@ export class EmployeeAddComponent implements OnInit {
     this.close.emit();
   }
 
-   onChange(location: Location){
-    this.locationID = location.id;
+  onChange(location){
+    this.locationID = location;
   }
 
   add(employee) {

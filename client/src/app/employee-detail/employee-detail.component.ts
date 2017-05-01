@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, Inject } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 
 import { EmployeeService } from '../employee.service';
@@ -6,6 +6,8 @@ import { LocationService } from '../service/location.service';
 
 import { Location } from '../model/location.model';
 import { Employee } from '../model/employee.model';
+
+import { lookupListToken } from '../providers/provider';
 
 @Component({
   selector: 'app-employee-detail',
@@ -21,14 +23,12 @@ export class EmployeeDetailComponent implements OnInit {
 
   constructor( private formBuilder: FormBuilder,
   private employeeService : EmployeeService,
-  private locationService: LocationService){}
+  private locationService: LocationService,
+  @Inject(lookupListToken) public lookupLists){}
 
   ngOnInit() {
      this.locationService.get()
       .subscribe(response => this.locations = response);
-      //this.uploadURL = this.employee.imageUrl;
-      //console.log(this.employee);
-      //console.log(this.uploadURL);
       this.loadForm();
   }
 
@@ -71,14 +71,17 @@ export class EmployeeDetailComponent implements OnInit {
     if(this.uploadURL){
       employee.imageUrl = this.uploadURL;
     }
-    console.log(employee);
+    else{
+      employee.imageUrl = this.employee.imageUrl;
+    }
     this.employeeService.update(employee);
     this.employee = employee;
     this.uploadURL = null;
+    this.locationID = null;
   }
 
-  onChange(location: Location){
-    this.locationID = location.id;
+  onChange(location){
+    this.locationID = location;
   }
 
   imgProcess(photo){

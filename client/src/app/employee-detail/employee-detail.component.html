@@ -17,8 +17,7 @@
             <div class="form-group">
                 <label class="control-label" for="gender">Gender</label>
                 <select class="form-control" name="gender" id="gender" formControlName="gender" [ngModel]="employee?.gender">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option *ngFor="let gender of lookupLists.gender" value="{{gender}}">{{gender}}</option>
                 </select>
             </div>
             <div class="form-group">
@@ -27,11 +26,17 @@
             </div>
             <div class="form-group">
               <label class="control-label" for="nationality">Nationality</label>
-              <input class="form-control" type="text" name="nationality" id="nationality" formControlName="nationality" [ngModel]="employee?.nationality">
+              <select class="form-control" name="nationality" id="nationality" formControlName="nationality"
+                    [ngModel]="employee?.nationality">
+                    <option *ngFor="let nat of lookupLists.nationality" value="{{nat}}">{{nat}}</option>
+              </select>
             </div>
             <div class="form-group">
               <label class="control-label" for="maritalStatus">Marital Status</label>
-              <input class="form-control" type="text" name="maritalStatus" id="maritalStatus" formControlName="maritalStatus" [ngModel]="employee?.maritalStatus">
+              <select class="form-control" name="maritalStatus" id="maritalStatus" formControlName="maritalStatus"
+                    [ngModel]="employee?.maritalStatus">
+                    <option *ngFor="let mar of lookupLists.marital" value="{{mar}}">{{mar}}</option>
+              </select>
             </div>
             <div class="form-group">
               <label class="control-label" for="phone">Phone</label>
@@ -61,7 +66,10 @@
             </div>
             <div class="form-group">
               <label class="control-label" for="grade">Grade</label>
-              <input class="form-control" type="text" name="grade" id="grade" formControlName="grade" [ngModel]="employee?.grade">
+              <select class="form-control" name="grade" id="grade" formControlName="grade"
+                    [ngModel]="employee?.grade">
+                    <option *ngFor="let grade of lookupLists.grade" value="{{grade}}">{{grade}}</option>
+              </select>
             </div>
             <div class="form-group">
               <label class="control-label" for="email">Email</label>
@@ -69,18 +77,18 @@
             </div>
             <div class="form-group">
                   <label class="control-label" for="location">Office Location</label>
-                  <select class="form-control" name="location" id="location" formControlName="location" [ngModel]="employee.location?.id">
-                      <option *ngFor="let l of locations" [value]="l.id" (click)="onChange(l)">{{l.city}}</option>
+                  <select class="form-control" name="location" id="location" formControlName="location" [ngModel]="employee.location?.id" #loc (change)="onChange(loc.value)">
+                      <option *ngFor="let l of locations" [value]="l.id">{{l.city}}</option>
                   </select>
             </div>
-        </div>
-      <div class="col-md-2" id="formcolumn">
-          <i id="upload" class="glyphicon glyphicon-camera" (click)="fileInput.click()"></i>
-          <img class="img" src="{{ employee.imageUrl }}" *ngIf="!uploadURL">
-          <img class="img" [src]="uploadURL" *ngIf="uploadURL">
-          <input #fileInput  name="imageUrl" id="imageUrl" type="file" 
-                (change)="imgProcess($event)" accept="image/*" formControlName="imageUrl"/>
-      </div>
+          </div>
+          <div class="col-md-2" id="formcolumn">
+            <i id="upload" class="glyphicon glyphicon-camera" (click)="fileInput.click()"></i>
+            <img class="img" src="{{ employee.imageUrl }}" *ngIf="!uploadURL">
+            <img class="img" [src]="uploadURL" *ngIf="uploadURL">
+            <input #fileInput  name="imageUrl" id="imageUrl" type="file" 
+                  (change)="imgProcess($event)" accept="image/*" formControlName="imageUrl"/>
+          </div>
       </div>
       <div class="row">
         <button type="submit">Save</button>

@@ -1,4 +1,4 @@
-package com.ems.exception;
+package com.ems.execption;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -8,6 +8,5 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 		reason = "Not found"
 	)
 
-public class NotFoundException extends RuntimeException {
-
+	public class NotFoundException extends RuntimeException {
 }
