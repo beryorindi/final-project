@@ -7,6 +7,10 @@ section {
   float: right;
 }
 
+.left{
+  float: left;
+}
+
 .btn-circle.btn-lg {
   background-color: transparent;
   width: 50px;
@@ -15,4 +19,9 @@ section {
   font-size: 18px;
   line-height: 1.33;
   border-radius: 25px;
+}
+
+li{
+  list-style: none;
+  list-style-position: right;
 }
