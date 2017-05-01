@@ -8,6 +8,7 @@
   height: 100%;
   max-height: 700px;
   border-color : grey;
+  cursor: pointer;
 }
 
 .btn-circle.btn-lg{
@@ -21,4 +22,16 @@
   position: absolute; 
   bottom: 20px;
   right: 30px;
+}
+
+.highlight{
+  background-color: orange;
+}
+
+.not-found{
+  color: black;
+  background-color: coral;
+  width: 100%;
+  text-align : center;
+  padding: 10px;
 }

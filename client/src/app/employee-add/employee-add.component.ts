@@ -43,19 +43,32 @@ export class EmployeeAddComponent implements OnInit {
         Validators.required,
         Validators.pattern('[\\w\\-\\s\\/]+')
       ])),
-      gender: this.formBuilder.control(''),
-      dob: this.formBuilder.control(''),
-      nationality: this.formBuilder.control(''),
-      maritalStatus: this.formBuilder.control(''),
-      phone: this.formBuilder.control(''),
-      subDivision: this.formBuilder.control(''),
-      status: this.formBuilder.control(''),
-      suspendDate: this.formBuilder.control(''),
-      hiredDate: this.formBuilder.control(''),
-      grade: this.formBuilder.control(''),
-      email: this.formBuilder.control(''),
-      location: this.formBuilder.control(''),
-      division : this.formBuilder.control(''),
+      gender: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      dob: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      nationality: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      maritalStatus: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      phone: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      subDivision: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      status: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      suspendDate: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      hiredDate: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      grade: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      email: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      location: this.formBuilder.control('', Validators.compose([
+        Validators.required])),
+      division : this.formBuilder.control('', Validators.compose([
+        Validators.required])),
       imageUrl:this.formBuilder.control(''),
     });
   }

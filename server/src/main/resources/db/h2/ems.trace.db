@@ -1,0 +1,84 @@
+2017-05-01 10:37:11 jdbc[11]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "IMAGE_URL VARCHAR(255) NOT NULL": "'data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEBLAEsAAD/4RPoRXhpZgAASUkqAAgAAAALAA8BAgAGAAAAkgAAABABAgAVAAAAmAAAABIBAwABAAAAAQAAABoB... (83051)"; SQL statement:
+update employee set division=?, dob=?, email=?, first_name=?, gender=?, grade=?, hired_date=?, image_url=?, last_name=?, location=?, marital_status=?, nationality=?, phone=?, status=?, sub_division=?, suspend_date=? where id=? [22001-194]
+2017-05-01 10:40:58 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Column "LOCATION_ID" not found; SQL statement:
+create table employee (
+    id varchar(255) not null,
+    first_name varchar(50) not null,
+    last_name varchar(50) not null,
+    gender varchar(6) not null,
+    dob date not null,
+    nationality varchar(45) not null,
+    marital_status varchar(7) not null,
+    phone varchar(15) not null unique,
+    email varchar(50) not null unique,
+    hired_date date not null,
+    suspend_date date,
+    division varchar(45) not null,
+    grade varchar(45) not null,
+    sub_division varchar(45) not null,
+    status varchar(20) not null,
+    image_url text,
+    location varchar(255) not null,
+    primary key (id),
+    foreign key (location_id) references location(id)
+) [42122-194]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:676)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:208)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:77)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:176)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:101)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp.query(WebApp.java:1029)
+	at org.h2.server.web.WebApp.process(WebApp.java:222)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:169)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:125)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:162)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)

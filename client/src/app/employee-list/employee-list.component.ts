@@ -18,6 +18,7 @@ export class EmployeeListComponent implements OnInit {
   private selectedLocation : String;
   private selectedEmployeeID : Employee;
   private found = true;
+  private highlightedDiv: String;
   
   @Input() isSorted: boolean = false;
   @Output() selectedEmployee = new EventEmitter();
@@ -54,7 +55,12 @@ export class EmployeeListComponent implements OnInit {
       });
   }
 
-
-
-
+  toggleHighlight(newValue: String) {
+    if (this.highlightedDiv === newValue) {
+      this.highlightedDiv = null;
+    }
+    else {
+      this.highlightedDiv = newValue;
+    }
+  }
 }

@@ -62,7 +62,7 @@ export class SearchBarComponent implements OnInit {
     this.filterService.setSearchQuery(search.value);
   }
 
-  filters(gender){
+  filterGender(gender){
     this.selectedGender = gender;
     this.filterService.setGender(gender);
   }
@@ -81,7 +81,7 @@ export class SearchBarComponent implements OnInit {
     this.filterService.setSortOrder('desc');
   }
 
-  sorting(){
+  toggleSort(){
     if(this.ascending){
       this.ascending = false;
     }
@@ -90,7 +90,7 @@ export class SearchBarComponent implements OnInit {
     }
   }
 
-  filtering(){
+  toggleFilter(){
     if(!this.filter){
       this.filter = true;
     }
@@ -106,5 +106,11 @@ export class SearchBarComponent implements OnInit {
     else{
       this.delete = true;
     }
+  }
+
+  resetFilter(){
+    this.filterService.setGender('');
+    this.filterService.setLocation('');
+    this.toggleFilter();
   }
 }

@@ -4,7 +4,7 @@
       (ngSubmit)="update(form.value)"
       >
       <div class="row">
-        <div class="col-md-5" id="formcolumn">
+        <div class="col-sm-5" id="formcolumn">
             <input type="hidden" name="id" id="id" formControlName="id" [ngModel]="employee?.id">
             <div class="form-group">
               <label class="control-label" for="firstName">First Name</label>
@@ -43,7 +43,7 @@
               <input class="form-control" type="text" name="phone" id="phone" formControlName="phone" [ngModel]="employee?.phone">
             </div>
         </div>
-        <div class="col-md-5" id="formcolumn">
+        <div class="col-sm-5" id="formcolumn">
             <div class="form-group">
                 <label class="control-label" for="division">Division</label>
                 <input class="form-control" type="text" name="division" id="division" formControlName="division" [ngModel]="employee?.division">
@@ -82,7 +82,7 @@
                   </select>
             </div>
           </div>
-          <div class="col-md-2" id="formcolumn">
+          <div class="col-sm-2" id="formcolumn">
             <i id="upload" class="glyphicon glyphicon-camera" (click)="fileInput.click()"></i>
             <img class="img" src="{{ employee.imageUrl }}" *ngIf="!uploadURL">
             <img class="img" [src]="uploadURL" *ngIf="uploadURL">
@@ -91,7 +91,7 @@
           </div>
       </div>
       <div class="row">
-        <button type="submit">Save</button>
+        <button type="submit" class="btn btn-success">Save</button>
       </div>
     </form>
 </section>

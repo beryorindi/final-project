@@ -3,6 +3,7 @@
   padding: 20px;
   margin: 0;
   height: 100%;
+  width: 100%;
   max-height: 700px;
 }
 
@@ -11,16 +12,24 @@
 }
 
 img{
-  border-radius: 50%;
+    border-radius: 50%;
     width : 100px;
     height: 100px;
+    position: absolute;
+    z-index: 1;
 }
 
 #upload{
     cursor: pointer;
-    float : right;
+    position: absolute;
+    z-index: 2;
+    top : 25px;
 }
 
 #imageUrl{
     display:none;
+}
+
+.btn{
+    float: right;
 }
