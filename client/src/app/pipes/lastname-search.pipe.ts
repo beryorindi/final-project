@@ -12,7 +12,7 @@ export class LastnameSearchPipe implements PipeTransform {
     }
     
     return employees.filter(employee =>
-      employee.lastName.toLowerCase().includes(query)
+      employee.lastName.toLowerCase().includes(query) || employee.firstName.toLowerCase().includes(query)
     );
   }
 

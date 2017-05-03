@@ -18,7 +18,7 @@ export class FilterService {
   init(){
     this._states = {
       "searchQuery" : "",
-      "sortOrder" : "asc",
+      "sortOrder" : "",
       "filter" : {
         "gender" : "",
         "location" : ""

@@ -1,5 +1,17 @@
-# Finalproject
+# BTPN Mitrais Final Project
 
+## Requirement
+Make Employee Management System  that can :
+- View Employee Detail
+- Add New Employee
+- Update Employee
+- Delete Employee
+- Search by Last Name
+- Filter by Location and Gender
+
+This project best look using Google Chrome
+
+## Generated
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
 ## Development server

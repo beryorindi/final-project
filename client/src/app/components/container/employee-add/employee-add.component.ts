@@ -57,8 +57,7 @@ export class EmployeeAddComponent implements OnInit {
         Validators.required])),
       status: this.formBuilder.control('', Validators.compose([
         Validators.required])),
-      suspendDate: this.formBuilder.control('', Validators.compose([
-        Validators.required])),
+      suspendDate: this.formBuilder.control(''),
       hiredDate: this.formBuilder.control('', Validators.compose([
         Validators.required])),
       grade: this.formBuilder.control('', Validators.compose([

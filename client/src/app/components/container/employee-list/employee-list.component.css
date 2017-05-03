@@ -6,7 +6,7 @@
   margin: 0;
   overflow-y: auto;
   height: 100%;
-  max-height: 700px;
+  max-height: 550px;
   border-color : grey;
   cursor: pointer;
 }
